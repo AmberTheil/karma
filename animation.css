@@ -1,0 +1,355 @@
+/*
+div {
+    outline: 2px dotted yellow;
+}
+
+
+for at ændre objekternes position, skal man sætte en position: absolute.
+
+z-index bestemmer hvilken rækkefølge de bliver vist i, hvoraf 0 er bagerst og +100 er øverst (ligesom lag i photoshop, indesign, osv.)
+
+hvis man tilføjer overflow: hidden; på ens baggrund, så går de andre objekter ikke ud over billedet (prøv evt. at fjerne det, for at se hvad der sker)
+
+man bestemmer positioner ved at skrive top, left, right, bottom - som oftest er top og left nok.*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#scene {
+
+    width: 163vw;
+    /* svarer til 2600px */
+    height: 56.25vw;
+    /* svarer til 900 px */
+    position: relative;
+}
+
+#baggrund {
+    background-image: url("grafik/baggrund.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    overflow: hidden;
+}
+
+
+#skildpaddeskjold {
+    background-image: url("grafik/skildpaddeskjold.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 12.4vw;
+    height: 8vw;
+    position: absolute;
+    top: 55vh;
+    left: 133vh;
+    z-index: 0;
+    transform: scale(0.3, 0.3);
+}
+
+
+#abe {
+    background-image: url("grafik/abe.png");
+    background-size: 100%;
+    width: 16vw;
+    height: 24.8vw;
+    position: absolute;
+    top: 39vh;
+    left: 60vh;
+    z-index: 3;
+    transform: scale(0.5, 0.5);
+    animation-name: abee;
+    animation-duration: 4s;
+    animation-delay: 2s;
+}
+
+#gorilla {
+    background-image: url("grafik/gorilla.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 23vw;
+    height: 31.7vw;
+    position: absolute;
+    top: 34vh;
+    left: 40vh;
+    z-index: 3;
+    transform: scale(0.5, 0.5);
+    animation-name: gorillaa;
+    animation-duration: 4s;
+    animation-delay: 2s;
+}
+
+#forgrund {
+    background-image: url("grafik/forgrund-01.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 163vw;
+    height: 56.25vw;
+    position: absolute;
+    z-index: +100;
+}
+
+
+@keyframes abee {
+    0% {
+        left: -10vh;
+        top: 39vh;
+    }
+    25% {
+        left: 10vh;
+        top: 39vh;
+    }
+    50% {
+        left: 20vh;
+        top: 39vh;
+    }
+    75% {
+        left: 40vh;
+        top: 39vh;
+    }
+    100% {
+        left: 60vh;
+        top: 39vh;
+    }
+}
+
+@keyframes gorillaa {
+    0% {
+        left: -10vh;
+        top: 34vh;
+    }
+    20% {
+        left: 0vh;
+        top: 34vh;
+    }
+    50% {
+        left: 5vh;
+        top: 34vh;
+    }
+    75% {
+        left: 10vh;
+        top: 34vh;
+    }
+    100% {
+        left: 40vh;
+        top: 34vh;
+    }
+}
+
+/* -------- SKY */
+
+#sky1 {
+    width: 200px;
+    height: 60px;
+    background: white;
+    position: absolute;
+    border-radius: 200px;
+
+    top: 100px;
+    position: relative;
+    animation: move 5s infinite linear;
+    z-index: 1;
+    animation-name: sky1;
+
+}
+
+#sky1:after {
+    content: '';
+    position: absolute;
+    background: white;
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: 20px;
+    border-radius: 200px;
+
+}
+
+#sky1:before {
+    content: '';
+    position: absolute;
+    background: white;
+    width: 100px;
+    height: 100px;
+    top: -60px;
+    right: 30px;
+    border-radius: 200px;
+}
+
+@keyframes sky1 {
+    0% {
+        left: 0px;
+    }
+    50% {
+        left: 20px;
+        top: 70px;
+        opacity: 1;
+    }
+    60% {
+        left: 25px;
+        top: 80px;
+        opacity: 1;
+    }
+    70% {
+        left: 25px;
+        top 90px;
+        opacity: 1;
+    }
+    100% {
+        left: 0px
+    }
+}
+
+
+/*--------- BIRD -------- */
+
+#fugl1 {
+    background-image: url("grafik/fugl.png");
+    background-size: 100%;
+    width: 22vw;
+    height: 4.2vw;
+    position: absolute;
+    top: 20vh;
+    left: 100vh;
+    z-index: 3;
+    transform: scale(0.1, 0.1);
+    animation: move 15s infinite linear;
+    animation-name: fugll;
+
+}
+
+#fugl2 {
+    background-image: url("grafik/fugl.png");
+    background-size: 100%;
+    width: 22vw;
+    height: 4.2vw;
+    position: absolute;
+    top: 20vh;
+    left: 100vh;
+    z-index: 3;
+    transform: scale(0.1, 0.1);
+    animation: move 15s infinite linear;
+    animation-name: fugll;
+    animation-delay: 2s;
+
+}
+
+#fugl3 {
+    background-image: url("grafik/fugl.png");
+    background-size: 100%;
+    width: 22vw;
+    height: 4.2vw;
+    position: absolute;
+    top: 20vh;
+    left: 100vh;
+    z-index: 3;
+    transform: scale(0.1, 0.1);
+    animation: move 10s infinite linear;
+    animation-name: fuglll;
+
+}
+
+#fugl4 {
+    background-image: url("grafik/fugl.png");
+    background-size: 100%;
+    width: 22vw;
+    height: 4.2vw;
+    position: absolute;
+    top: 30vh;
+    left: 50vh;
+    z-index: 3;
+    transform: scale(0.1, 0.1);
+    animation: move 8s infinite linear;
+    animation-name: fugllll;
+
+}
+
+#fugl5 {
+    background-image: url("grafik/fugl.png");
+    background-size: 100%;
+    width: 22vw;
+    height: 4.2vw;
+    position: absolute;
+    top: 30vh;
+    left: 50vh;
+    z-index: 3;
+    transform: scale(0.1, 0.1);
+    animation: move 8s infinite linear;
+    animation-name: fugllll;
+    animation-delay: 4s;
+
+}
+
+
+@keyframes fugll {
+    0% {
+        left: 100vh;
+        top: 28vh;
+    }
+    20% {
+        left: 103vh;
+        top: 29vh;
+    }
+    50% {
+        left: 105vh;
+        top: 30vh;
+    }
+    75% {
+        left: 103vh;
+        top: 29vh;
+    }
+    100% {
+        left: 100vh;
+        top: 28vh;
+    }
+}
+
+@keyframes fuglll {
+    0% {
+        left: 100vh;
+        top: 28vh;
+    }
+    50% {
+        left: 105vh;
+        top: 29;
+    }
+    100% {
+        left: 100vh;
+        top: 28vh;
+    }
+}
+
+@keyframes fugllll {
+    0% {
+        left: 47vh;
+        top: 30vh;
+    }
+    50% {
+        left: 47vh;
+        top: 31vh;
+    }
+    100% {
+        left: 47vh;
+        top: 30vh;
+    }
+}
+
+/*------Style--------*/
+
+
+a {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    margin: 1em;
+    padding: 0.5em;
+    font-family: 'Amatic SC', cursive;
+    color: coral;
+    font-size: 2em;
+    text-decoration: none;
+    flex-basis: 300px;
+    background-color: skyblue;
+}
