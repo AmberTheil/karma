@@ -10,24 +10,43 @@ body {
     height: 56.25vw;
     /* svarer til 900 px */
     position: relative;
+
 }
+
 
 #baggrund {
     background-image: url("grafik/baggrund-01.svg");
     background-size: 162.5%;
-
     width: 100vw;
     height: 56.5vw;
-
-    position: absolute;
+    position: relative;
+    background-size: cover;
 
 }
+
+.baggrund_moving {
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    animation: animate 15% linear infinite;
+}
+
+@keyframes animate {
+
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+
+
 
 /* -------- GORILLA WALK -------- */
 
 #gorilla_sprite {
 
-    background-image: url(grafik/Artboard%2010.svg);
+    background-image: url(grafik/Artboard%201.svg);
     background-size: 900% 500%;
     left: -35vw;
     top: 7vw;
@@ -66,7 +85,7 @@ body {
 .moving_gorilla {
 
     animation-name: moving_gorilla_kf;
-    animation-duration: 5s;
+    animation-duration: 4s;
     animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -87,22 +106,6 @@ body {
 
 }
 
-.gorilla_center {
-
-    animation-name: gorilla_center_kf;
-    animation-iteration-count: infinite;
-    left: 35vw;
-    top: 7vw;
-
-}
-
-@keyframes gorilla_center_kf {
-
-    100% {
-        left: 35vw;
-        top: 13vw;
-    }
-}
 
 
 /* -------- GORILLA SIT -------- */
@@ -115,8 +118,9 @@ body {
 
 .gorilla_spis {
     animation-name: gorilla_spis_kf;
-    animation-duration: 7s;
-    animation-timing-function: steps(4);
+    animation-duration: 5s;
+    animation-timing-function: steps(6);
+    animation-delay: 6.7s;
 }
 
 @keyframes gorilla_spis_kf {
@@ -124,7 +128,7 @@ body {
         background-position: 0% -300%;
     }
     to {
-        background-position: -400% -300%;
+        background-position: -600% -300%;
     }
 }
 
@@ -141,7 +145,6 @@ body {
 
 }
 
-
 @keyframes moving_gorilla2_kf {
 
     0% {
@@ -153,6 +156,41 @@ body {
         left: 55vw;
         top: 13vw;
     }
+
+}
+
+/*----------- Gorilla faldt --------- */
+
+.gorilla_faldt {
+    animation-name: gorilla_faldt_kf;
+    animation-duration: 5s;
+    animation-timing-function: steps(9);
+    animation-fill-mode: backwards;
+
+}
+
+@keyframes gorilla_faldt_kf {
+    from {
+        background-position: 0% -100%;
+    }
+    to {
+        background-position: -900% -100%;
+    }
+}
+
+
+/* ---------- Gorilla cry -------- */
+
+.gorilla_cry {
+    background-position: -800% -100%;
+}
+
+
+/*--------- GORILLA PLASTER -------- */
+
+.gorilla_plaster {
+    background-position: 0 -200%;
+    animation-fill-mode: backwards;
 
 }
 
@@ -186,7 +224,7 @@ body {
 
 }
 
-@keyframes walk_banana_abekf {
+@keyframes walk_banana_abe_kf {
     from {
         background-position: 0% -100%;
     }
@@ -195,9 +233,26 @@ body {
     }
 }
 
+.walk_abe {
+    animation-name: walk_abe_kf;
+    animation-duration: 1s;
+    animation-timing-function: steps(8);
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes walk_abe_kf {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: -800% 0%;
+    }
+}
+
 .moving_abe {
     animation-name: moving_abe_kf;
-    animation-duration: 5s;
+    animation-duration: 10s;
     animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -212,6 +267,27 @@ body {
 
     100% {
         left: 32vw;
+        top: 27vw;
+    }
+}
+
+.moving_abe2 {
+    animation-name: moving_abe2_kf;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes moving_abe2_kf {
+
+    0% {
+        left: 32vw;
+        top: 27vw;
+    }
+
+    100% {
+        left: 40vw;
         top: 27vw;
     }
 }
@@ -234,7 +310,7 @@ abe_center {
 
 .abe_vred {
     animation-name: abe_vred_kf;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-timing-function: steps(2);
     animation-iteration-count: infinite;
 
@@ -253,9 +329,8 @@ abe_center {
 /*------ ABE STÅR BANAN--------- */
 
 .still_banana_abe {
-    animation-name: walk_banana_abekf;
-    animation-duration: 1s;
-    animation-timing-function: steps(8);
+    animation-name: still_banana_abe_kf;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
 
 }
@@ -265,7 +340,48 @@ abe_center {
         background-position: 0% -100%;
     }
     to {
-        background-position: -800% -100%;
+        background-position: 0% -100%;
+    }
+}
+
+/*------------ ABE GRINER -----------*/
+
+.abe_griner {
+    animation-name: abe_griner_kf;
+    animation-duration: 7s;
+    animation-timing-function: steps(4);
+    animation-fill-mode: both;
+
+}
+
+@keyframes abe_griner_kf {
+    from {
+        background-position: 0% -300%;
+    }
+    to {
+        background-position: -400% -300%;
+    }
+}
+
+
+
+
+/*---------------- ABE PLASTER -------- */
+
+.abe_plaster {
+    animation-name: abe_plaster_kf;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(3);
+
+}
+
+@keyframes abe_plaster_kf {
+    from {
+        background-position: 0% -400%;
+    }
+    to {
+        background-position: -300% -400%;
     }
 }
 
@@ -276,30 +392,35 @@ abe_center {
 #skildpadde {
     background-image: url(grafik/skildpaddeskjold.png);
     background-size: 100%;
-    width: 12.4vw;
-    height: 8vw;
+    width: 6.2vw;
+    height: 4vw;
     position: absolute;
     border: 1px solid black;
+    left: 80vw;
+    top: 45vw;
+    z-index: 5;
 }
 
 .skildpadde_falder {
     animation-name: skildpadde_falder_kf;
+    animation-duration: 1s;
+    animation-delay: 5s;
 
 }
 
 @keyframes skildpadde_falder_kf {
 
     0% {
-        left: 35vw;
-        top: -20vw;
+        left: 71vw;
+        top: -77vw;
     }
     75% {
-        left: 40vw;
-        top: 13vw;
+        left: 71vw;
+        top: 27vw;
     }
     100% {
-        left: 40vw;
-        top: 25vw;
+        left: 80vw;
+        top: 45vw;
     }
 }
 
@@ -466,4 +587,34 @@ a {
     text-decoration: none;
     flex-basis: 300px;
     background-color: skyblue;
+}
+
+
+/* ------------- STYLETILE ---------- */
+
+#styletile_container {
+    background-image: url("grafik/styletile.png");
+    background-size: 162.5%;
+    width: 100vw;
+    height: 56.5vw;
+    position: relative;
+    background-size: cover;
+
+}
+
+.styletile_move {
+    animation-name: styletile_move_kf;
+    animation-duration: 1s;
+    animation-timing-function: steps(2);
+    animation-iteration-count: infinite;
+}
+
+@keyframes styletile_move_kf {
+
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -199% 0;
+    }
 }
